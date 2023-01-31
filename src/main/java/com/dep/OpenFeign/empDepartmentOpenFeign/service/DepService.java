@@ -4,8 +4,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "EmpServer",url = "localhost:9001/emp")
+@FeignClient(name = "EMP-SERVICE")
 public interface DepService {
-    @GetMapping("/{id}")
+    @GetMapping("/emp/empByIdSQL/{id}")
     public Object getDepById(@PathVariable("id") Integer id);
+
+    @GetMapping("/emp/allEmpSQL")
+    public Object getAllEmp();
 }

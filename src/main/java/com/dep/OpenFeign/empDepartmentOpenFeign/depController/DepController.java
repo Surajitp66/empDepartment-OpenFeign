@@ -13,8 +13,15 @@ public class DepController {
 
     @Autowired
     DepService depService;
+
     @GetMapping("/{id}")
-    public  Object getDepById(@PathVariable("id") Integer id){
+    public Object getDepById(@PathVariable("id") Integer id) {
         return depService.getDepById(id);
+
+    }
+
+    @GetMapping("/allEmp")
+    public Object getEmp() {
+        return depService.getAllEmp();
     }
 }
